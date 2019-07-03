@@ -1,4 +1,4 @@
-package parallelrun.cucumber.stepdefs;
+package parallel;
 
 import cucumber.api.java.After;
 import cucumber.api.java.en.Given;
@@ -9,7 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.net.MalformedURLException;
 
 @Slf4j
-public class SkyScannerStepDef extends BaseStepDef {
+public class SkyScannerStepDefs extends BaseStepDefs {
 
 
     @Given("^SkyScanner Default inputs$")

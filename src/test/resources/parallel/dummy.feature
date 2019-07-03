@@ -6,7 +6,7 @@ Feature: Dummy Feature
     Given A Dummy background is given
 
   Scenario: Dummy Scenario
-    Given Dummy Given
+    Given Dummy Given 'Scenario 1' in 'Dummy Feature'
     When Dummy When
     Then Dummy Then
 

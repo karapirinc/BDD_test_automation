@@ -1,4 +1,4 @@
-package parallelrun.cucumber.stepdefs;
+package parallel;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -9,7 +9,7 @@ import parallelrun.model.DummyDataModel;
 import parallelrun.service.DummyService;
 
 @Slf4j
-public class DummyStepDef {
+public class DummyStepDefs {
 
     private static final String KEY = "MY_KEY";
 
@@ -18,7 +18,7 @@ public class DummyStepDef {
     private final DummyService dummyService;
 
     @Autowired
-    public DummyStepDef(DummyService dummyService) {
+    public DummyStepDefs(DummyService dummyService) {
         this.dummyService = dummyService;
         this.dummyDataModel = new DummyDataModel();
     }
@@ -28,9 +28,11 @@ public class DummyStepDef {
         log.info("A Dummy background is given");
     }
 
-    @Given("^Dummy Given")
-    public void dummyGiven() {
+    @Given("Dummy Given {string} in {string}")
+    public void dummyGiven(String scenario, String file) {
         dummyDataModel.setValue(1);
+        System.out.format("Thread ID - %2d - %s from %s feature file.\n",
+                Thread.currentThread().getId(), scenario, file);
         log.info("Dummy Given {}", dummyDataModel);
         log.info("Dummy Service Dummy Value : {}", dummyService.getDummy());
     }
@@ -61,5 +63,4 @@ public class DummyStepDef {
     public void dummyThen2() {
         log.info("Dummy Then 2{}", dummyDataModel);
     }
-
 }

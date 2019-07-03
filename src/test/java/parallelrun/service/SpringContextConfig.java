@@ -1,9 +1,9 @@
-package parallelrun.config;
+package parallelrun.service;
 
 import cucumber.api.java.Before;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
-import parallelrun.spring.Config;
+import parallel.Config;
 
 @SpringBootTest(classes = Config.class)
 @DirtiesContext

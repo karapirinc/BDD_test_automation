@@ -1,16 +1,15 @@
-package parallelrun.cucumber.stepdefs;
+package parallel;
 
 import cucumber.api.java.After;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import lombok.extern.slf4j.Slf4j;
-import org.openqa.selenium.By;
 
 import java.net.MalformedURLException;
 
 @Slf4j
-public class GoogleFlightStepDef extends BaseStepDef {
+public class GoogleFlightStepDefs extends BaseStepDefs {
 
 
 //    @BeforeClass
@@ -27,13 +26,13 @@ public class GoogleFlightStepDef extends BaseStepDef {
     public void openGoogleFlight() throws MalformedURLException {
         driver = getRemoteDriver();
 //        driver.get("https://www.google.com/flights");
-        driver.navigate().to("https://www.google.com/flights");
+        driver.navigate().to("https://www.google.com");
         log.info("Opended google flight main page");
     }
 
     @When("^Search Google Flights$")
     public void googleFlightListResults() throws InterruptedException {
-        driver.findElement(By.className("gws-flights-form__search-button")).click();
+//        driver.findElement(By.className("gws-flights-form__search-button")).click();
         log.info("Google googleFlightListResults");
 
     }
@@ -45,8 +44,12 @@ public class GoogleFlightStepDef extends BaseStepDef {
 
     @After
     public final void closeDriver() {
-        if (driver != null)
+        if (driver != null) {
+            log.info("close driver");
+            driver.manage().deleteAllCookies();
+            driver.close();
             driver.quit();
+        }
     }
 
 }
