@@ -1,4 +1,4 @@
-@Parallel
+@Parallel @Google @Ignore
 Feature: Google Flights Search
   Scenario: Search Google flights
     Given Open Google Flight

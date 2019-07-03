@@ -1,4 +1,4 @@
-@Parallel @Ignore
+@Parallel
 Feature: Kayak Flight Search
   Scenario: Search Kayak flights
     Given Open Kayak
