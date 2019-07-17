@@ -1,16 +1,18 @@
-package parallelrun.service;
+package stepdefs;
 
-import cucumber.api.java.Before;
+import io.cucumber.java.Before;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
-import parallel.Config;
 
-@SpringBootTest(classes = Config.class)
+@Slf4j
+@SpringBootTest(classes = {SpringConfig.class})
 @DirtiesContext
-public class SpringContextConfig {
+public class SpringTestContext {
 
     @Before
     public void setupCucumberSpringContext(){
+        log.info("========setupCucumberSpringContext========{}",this);
 //         Dummy method so cucumber will recognize this class as glue
 //         and use its context configuration.
     }
